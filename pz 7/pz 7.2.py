@@ -9,7 +9,7 @@ def find_word(sentence):
     # Проходимся по словам справа налево и ищем первое подходящее
     for word in reversed(words):
         if len(word) == min_length:
-            return word.strip(".,!?;:")  # Убираем возможные знаки препинания
+            return word.strip(".,!?;:")  #Убираем возможные знаки препинания
 
     return
 
