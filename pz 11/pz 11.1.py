@@ -23,7 +23,7 @@ f4.write('\n')
 f4.writelines(l)
 f4.close()
 
-# Читаем  данные из data_3.txt
+# Читаем данные из data_3.txt
 f3 = open('data_3.txt', encoding='utf-8')
 k = f3.read()
 k = k.split()

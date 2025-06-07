@@ -4,7 +4,6 @@
 
 import random
 
-
 N = int(input("Введите количество чисел: "))
 
 f = [random.randint(-100, 100) for _ in range(N)]

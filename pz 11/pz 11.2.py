@@ -3,11 +3,9 @@
 #в стихотворной форме предварительно вставив после каждой строки строку из символов
 #«*».
 
-# Чтение содержимого файла
 with open('text18-12.txt', 'r', encoding='utf-16') as file:
     content = file.read()
 
-# Вывод содержимого файла на экран
 print("Содержимое файла:")
 print(content)
 
@@ -26,7 +24,7 @@ new_content = []
 
 for line in lines:
     new_content.append(line)
-    new_content.append('*' * len(line))  # Строка из '*' той же длины, что и исходная строка
+    new_content.append('*' * len(line))
 
 # Объединение строк с переносами
 new_content_text = '\n'.join(new_content)
