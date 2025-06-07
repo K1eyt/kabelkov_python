@@ -7,31 +7,30 @@
 #Максимальный элемент:
 #Среднее арифметическое элементов первой трети:
 
-l = ['-99 6 12 -36 20 45 100 -15']
+import random
+
+l = [' '.join(str(random.randint(-100, 100)) for _ in range(8))]
 
 # Записываем данные в файл data_3.txt
 f3 = open('data_3.txt', 'w', encoding='utf-8')
 f3.writelines(l)
 f3.close()
 
-# Создаем файл data_4.txt с исходными данными
+# Создаем файл data_4.txt
 f4 = open('data_4.txt', 'w', encoding='utf-8')
 f4.write('Исходные данные: ')
 f4.write('\n')
 f4.writelines(l)
 f4.close()
 
-# Читаем и обрабатываем данные из data_3.txt
+# Читаем  данные из data_3.txt
 f3 = open('data_3.txt', encoding='utf-8')
 k = f3.read()
 k = k.split()
-k = [int(num) for num in k]  # Преобразуем все элементы в int
+k = [int(num) for num in k]
 f3.close()
 
-# Находим максимальный элемент
 max_num = max(k)
-
-
 # Вычисляем среднее первой трети
 third = len(k) // 3
 first = k[:third] if third > 0 else k

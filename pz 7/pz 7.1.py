@@ -4,7 +4,7 @@
 import random
 S = (input("Введите непустую строку:"))
 while True:
-    if S == "":
+    if S == ' ':
         print("Строка пустая")
         S = (input("Введите непустую строку:"))
     else:

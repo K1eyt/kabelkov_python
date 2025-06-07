@@ -1,18 +1,23 @@
 #1. В двумерном списке найти сумму и произведение элементов столбца N (N задать с
 #клавиатуры).
 
-# Ввод двумерного списка (матрицы)
+import random
+
+# Ввод размеров матрицы
 rows = int(input("Введите количество строк: "))
 cols = int(input("Введите количество столбцов: "))
+
 matrix = []
 for i in range(rows):
-    row = list(map(int, input(f"Введите {cols} элементов строки {i + 1} через пробел: ").split()))
+    row = [random.randint(1, 10) for _ in range(cols)]
     matrix.append(row)
 
-# Ввод номера столбца N (нумерация с 0)
-N = int(input("Введите номер столбца N (начиная с 0): "))
+print("\nСгенерированная матрица:")
+for row in matrix:
+    print(row)
 
-# Проверка на равильность введенного номера столбца
+N = int(input("\nВведите номер столбца N (начиная с 0): "))
+
 if N < 0 or N >= cols:
     print("Ошибка: номер столбца выходит за пределы диапазона")
 else:
@@ -23,5 +28,5 @@ else:
         column_sum += row[N]
         column_product *= row[N]
 
-    print(f"Сумма элементов столбца {N}: {column_sum}")
+    print(f"\nСумма элементов столбца {N}: {column_sum}")
     print(f"Произведение элементов столбца {N}: {column_product}")
