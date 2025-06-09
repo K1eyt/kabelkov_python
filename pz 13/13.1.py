@@ -3,30 +3,22 @@
 
 import random
 
-# Ввод размеров матрицы
-rows = int(input("Введите количество строк: "))
-cols = int(input("Введите количество столбцов: "))
-
-matrix = []
-for i in range(rows):
-    row = [random.randint(1, 10) for _ in range(cols)]
-    matrix.append(row)
+rows, cols = map(int, (input("Введите количество строк: "), input("Введите количество столбцов: ")))
+matrix = [list(map(lambda _: random.randint(1, 10), range(cols))) for _ in range(rows)]
 
 print("\nСгенерированная матрица:")
-for row in matrix:
-    print(row)
+list(map(print, matrix))
 
 N = int(input("\nВведите номер столбца N (начиная с 0): "))
 
 if N < 0 or N >= cols:
     print("Ошибка: номер столбца выходит за пределы диапазона")
 else:
-    # Вычисление суммы и произведения элементов столбца N
-    column_sum = 0
-    column_product = 1
-    for row in matrix:
-        column_sum += row[N]
-        column_product *= row[N]
+    column = list(map(lambda row: row[N], matrix))
+    sum_result = sum(column)
+    product_result = 1
+    for num in column:
+        product_result *= num
 
-    print(f"\nСумма элементов столбца {N}: {column_sum}")
-    print(f"Произведение элементов столбца {N}: {column_product}")
+    print(f"\nСумма элементов столбца {N}: {sum_result}")
+    print(f"Произведение элементов столбца {N}: {product_result}")

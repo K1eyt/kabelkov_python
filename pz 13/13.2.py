@@ -6,21 +6,11 @@ import random
 rows = int(input("Введите количество строк: "))
 cols = int(input("Введите количество столбцов: "))
 
-matrix = []
-for i in range(rows):
-    row = [random.randint(-10, 10) for _ in range(cols)]
-    matrix.append(row)
+matrix = [list(map(lambda _: random.randint(-10, 10), range(cols))) for _ in range(rows)]
 
 print("\nСгенерированная матрица:")
-for row in matrix:
-    print(row)
-
-# Поиск отрицательных элементов и формирование нового массива
-negative_elements = []
-for row in matrix:
-    for element in row:
-        if element < 0:
-            negative_elements.append(element)
+list(map(print, matrix))
+negative_elements = [x for row in matrix for x in row if x < 0]
 
 print("\nОтрицательные элементы:", negative_elements)
 print("Количество отрицательных элементов:", len(negative_elements))
